@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">OpenPayFit</string>
+    <string name="title_profile">Profile</string>
+    <string name="title_movies">Movies</string>
+    <string name="title_map">Map</string>
+    <string name="title_images">Images</string>
+</resources>

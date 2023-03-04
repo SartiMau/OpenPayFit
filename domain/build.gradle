@@ -1,0 +1,32 @@
+plugins {
+    id 'java-library'
+    id 'org.jetbrains.kotlin.jvm'
+    id 'kotlin-kapt'
+}
+
+def androidConfig = rootProject.ext
+
+java {
+    sourceCompatibility androidConfig.sourceCompatibility
+    targetCompatibility androidConfig.targetCompatibility
+}
+
+compileKotlin {
+    kotlinOptions {
+        freeCompilerArgs = ["-XXLanguage:+InlineClasses"]
+    }
+}.dependsOn ktlintFormat
+
+dependencies {
+    def appDependencies = rootProject.ext.dependencies
+    def unitTestDependencies = rootProject.ext.unitTestDependencies
+
+    // Hilt
+    implementation appDependencies.hiltCore
+    kapt appDependencies.hiltCompiler
+
+    // Unit test
+    testImplementation unitTestDependencies.junit
+    testImplementation unitTestDependencies.mockk
+    testImplementation unitTestDependencies.coroutinesTest
+}
