@@ -1,22 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".fragment.ProfileFragment">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
-        android:id="@+id/text_profile"
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.sartimau.openpayfit.viewmodel.ProfileViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_height="match_parent"
+        tools:context=".fragment.ProfileFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/card_container_margin">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/profile_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="@dimen/margin_15"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/person_image"
+                        android:layout_width="@dimen/card_image_width"
+                        android:layout_height="@dimen/card_image_height"
+                        android:contentDescription="@string/popular_person_image_content_description"
+                        android:src="@mipmap/movie_placeholder"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/person_id"
+                        style="@style/cardId"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toEndOf="@id/person_image"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="# 9292" />
+
+                    <TextView
+                        android:id="@+id/person_name"
+                        style="@style/cardTitle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toTopOf="@id/person_department"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/person_image"
+                        app:layout_constraintTop_toBottomOf="@id/person_id"
+                        tools:text="Person Name" />
+
+                    <TextView
+                        android:id="@+id/person_department"
+                        style="@style/cardDisclaimer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/person_image"
+                        app:layout_constraintTop_toBottomOf="@id/person_name"
+                        tools:text="Person department" />
+
+                    <LinearLayout
+                        android:id="@+id/popularity_container"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/person_image"
+                        app:layout_constraintTop_toBottomOf="@id/person_department"
+                        tools:ignore="UseCompoundDrawables">
+
+                        <ImageView
+                            android:layout_width="@dimen/person_popularity_icon_size"
+                            android:layout_height="@dimen/person_popularity_icon_size"
+                            android:contentDescription="@string/popularity_image_content_description"
+                            android:src="@mipmap/popularity" />
+
+                        <TextView
+                            android:id="@+id/person_popularity"
+                            style="@style/cardPersonPopularity"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            tools:text="245.9" />
+                    </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/divider_height"
+                android:layout_marginTop="@dimen/margin_10"
+                android:background="@color/blue_movie"
+                app:layout_constraintTop_toBottomOf="@id/profile_card" />
+
+            <TextView
+                android:id="@+id/known_for_list"
+                style="@style/subtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/known_for_list"
+                app:layout_constraintTop_toBottomOf="@id/divider" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="@dimen/margin_10"
+                android:layout_weight="1"
+                android:scrollbars="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/known_for_list"
+                tools:listitem="@layout/card_known_for" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <include
+            android:id="@+id/loader"
+            layout="@layout/loading_screen"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="@{viewModel.isLoading() ? View.VISIBLE : View.GONE}" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

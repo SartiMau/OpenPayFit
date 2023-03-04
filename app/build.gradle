@@ -20,6 +20,8 @@ android {
         versionName "1.0.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField "String", "IMAGES_BASE_URL", "\"http://image.tmdb.org/t/p/w500\""
     }
 
     buildTypes {
@@ -36,7 +38,7 @@ android {
         jvmTarget = androidConfig.jvmTarget
     }
     buildFeatures {
-        viewBinding true
+        dataBinding true
     }
 }
 
@@ -67,6 +69,9 @@ dependencies {
     // Navigation
     implementation appDependencies.navigationFragmentKtx
     implementation appDependencies.navigationUiKtx
+
+    // Picasso
+    implementation appDependencies.picasso
 
     // Unit test
     testImplementation unitTestDependencies.junit
