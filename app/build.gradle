@@ -1,0 +1,82 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'dagger.hilt.android.plugin'
+    id 'kotlin-kapt'
+}
+
+android {
+    def androidConfig = rootProject.ext
+
+    namespace 'com.sartimau.openpayfit'
+    compileSdk androidConfig.compileSdk
+
+    defaultConfig {
+        applicationId "com.sartimau.openpayfit"
+        minSdk androidConfig.minSdk
+        targetSdk androidConfig.targetSdk
+
+        versionCode 1
+        versionName "1.0.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility androidConfig.sourceCompatibility
+        targetCompatibility androidConfig.targetCompatibility
+    }
+    kotlinOptions {
+        jvmTarget = androidConfig.jvmTarget
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+preBuild.dependsOn ktlintFormat
+
+dependencies {
+    implementation project(path: ':domain')
+    implementation project(path: ':di')
+
+    def appDependencies = rootProject.ext.dependencies
+    def unitTestDependencies = rootProject.ext.unitTestDependencies
+    def androidTestDependencies = rootProject.ext.androidTestDependencies
+
+    // Android general libs
+    implementation appDependencies.coreKtx
+    implementation appDependencies.appCompat
+    implementation appDependencies.material
+    implementation appDependencies.constraintLayout
+
+    // Hilt
+    implementation appDependencies.hiltAndroid
+    kapt appDependencies.hiltAndroidCompiler
+
+    // LifeCycle
+    implementation appDependencies.lifecycleLiveDataKtx
+    implementation appDependencies.lifecycleViewModelKtx
+
+    // Navigation
+    implementation appDependencies.navigationFragmentKtx
+    implementation appDependencies.navigationUiKtx
+
+    // Unit test
+    testImplementation unitTestDependencies.junit
+    testImplementation unitTestDependencies.mockkAndroid
+    testImplementation unitTestDependencies.mockkAgent
+    testImplementation unitTestDependencies.archCoreTesting
+    testImplementation unitTestDependencies.coroutinesCore
+    testImplementation unitTestDependencies.coroutinesTest
+
+    // Android test
+    androidTestImplementation androidTestDependencies.junit
+    androidTestImplementation androidTestDependencies.espressoCore
+}

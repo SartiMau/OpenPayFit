@@ -1,0 +1,78 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'kotlinx-serialization'
+}
+
+android {
+    def androidConfig = rootProject.ext
+
+    namespace 'com.sartimau.openpayfit.data'
+    compileSdk androidConfig.compileSdk
+
+    defaultConfig {
+        minSdk androidConfig.minSdk
+        targetSdk androidConfig.targetSdk
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility androidConfig.sourceCompatibility
+        targetCompatibility androidConfig.targetCompatibility
+    }
+    kotlinOptions {
+        jvmTarget = androidConfig.jvmTarget
+    }
+}
+
+preBuild.dependsOn ktlintFormat
+
+dependencies {
+    implementation project(path: ':domain')
+
+    def appDependencies = rootProject.ext.dependencies
+    def unitTestDependencies = rootProject.ext.unitTestDependencies
+    def androidTestDependencies = rootProject.ext.androidTestDependencies
+
+    // Android general libs
+    implementation appDependencies.coreKtx
+    implementation appDependencies.appCompat
+    implementation appDependencies.material
+
+    // Hilt
+    implementation appDependencies.hiltAndroid
+    kapt appDependencies.hiltAndroidCompiler
+
+    // Retrofit
+    implementation appDependencies.retrofit
+    implementation appDependencies.okhttp
+
+    // Kotlinx serialization
+    implementation appDependencies.kotlinxSerializationCore
+    implementation appDependencies.kotlinxSerializationJson
+    implementation appDependencies.kotlinxSerializationConverter
+
+    // Chucker
+    implementation appDependencies.chucker
+
+    // Room
+    implementation appDependencies.roomRuntime
+    implementation appDependencies.roomKtx
+    kapt appDependencies.roomCompiler
+
+    // Unit test
+    testImplementation unitTestDependencies.junit
+
+    // Android test
+    androidTestImplementation androidTestDependencies.junit
+    androidTestImplementation androidTestDependencies.espressoCore
+}
