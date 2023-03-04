@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/profile_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_10"
+        app:cardCornerRadius="@dimen/margin_15"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/show_image"
+                android:layout_width="@dimen/card_image_width"
+                android:layout_height="@dimen/card_image_height"
+                android:contentDescription="@string/popular_person_image_content_description"
+                android:src="@mipmap/movie_placeholder"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/show_id"
+                style="@style/cardId"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@id/popularity_container"
+                app:layout_constraintStart_toEndOf="@id/show_image"
+                app:layout_constraintTop_toTopOf="@id/popularity_container"
+                tools:text="# 9292" />
+
+            <LinearLayout
+                android:id="@+id/popularity_container"
+                style="@style/cardShowPopularity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="UseCompoundDrawables">
+
+                <ImageView
+                    android:layout_width="@dimen/popularity_star_size"
+                    android:layout_height="@dimen/popularity_star_size"
+                    android:contentDescription="@string/popularity_image_content_description"
+                    android:src="@mipmap/star" />
+
+                <TextView
+                    android:id="@+id/show_popularity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_10"
+                    android:layout_marginEnd="@dimen/margin_10"
+                    android:textColor="@color/blue_movie"
+                    tools:text="8.6" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/show_name"
+                style="@style/cardTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/card_title_text_size_small"
+                app:layout_constraintBottom_toTopOf="@id/show_overview"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/show_image"
+                app:layout_constraintTop_toBottomOf="@id/popularity_container"
+                tools:text="Show name" />
+
+            <TextView
+                android:id="@+id/show_overview"
+                style="@style/cardShowOverview"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/show_image"
+                app:layout_constraintTop_toBottomOf="@id/show_name"
+                tools:text="Show overview" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

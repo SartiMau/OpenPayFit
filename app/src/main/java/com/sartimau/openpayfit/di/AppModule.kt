@@ -4,6 +4,13 @@ import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 
-@Module(includes = [])
+@Module(
+    includes = [
+        ApiModule::class,
+        DataBaseModule::class,
+        ServiceModule::class,
+        UseCaseModule::class
+    ]
+)
 @InstallIn(SingletonComponent::class)
 class AppModule

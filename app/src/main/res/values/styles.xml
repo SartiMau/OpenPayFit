@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="dialogTitle">
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">@color/blue_movie</item>
+        <item name="android:textSize">@dimen/dialog_title_text_size</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="dialogMessage" parent="dialogTitle">
+        <item name="android:textSize">@dimen/dialog_message_text_size</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="commonButton">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:backgroundTint">@color/blue_movie</item>
+    </style>
+
+    <style name="subtitle">
+        <item name="android:textSize">@dimen/dialog_message_text_size</item>
+        <item name="android:layout_marginTop">@dimen/margin_10</item>
+        <item name="android:textColor">@color/blue_movie</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="loader">
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:background">@color/loading_bg</item>
+        <item name="android:clickable">true</item>
+        <item name="android:elevation">@dimen/loader_elevation</item>
+        <item name="android:focusable">true</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="cardId">
+        <item name="android:layout_marginStart">@dimen/margin_10</item>
+        <item name="android:layout_marginTop">@dimen/margin_10</item>
+        <item name="android:textColor">@color/blue_movie</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="cardTitle">
+        <item name="android:layout_marginStart">@dimen/margin_10</item>
+        <item name="android:layout_marginEnd">@dimen/margin_10</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">@color/blue_movie</item>
+        <item name="android:textSize">@dimen/card_title_text_size_big</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="cardDisclaimer">
+        <item name="android:layout_marginStart">@dimen/margin_10</item>
+        <item name="android:layout_marginEnd">@dimen/margin_10</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">@color/blue_movie</item>
+        <item name="android:textSize">@dimen/card_message_text_size_small</item>
+    </style>
+
+    <style name="cardPersonPopularity">
+        <item name="android:layout_marginStart">@dimen/margin_10</item>
+        <item name="android:textColor">@color/blue_movie</item>
+        <item name="android:textSize">@dimen/card_message_text_size_big</item>
+    </style>
+
+    <style name="cardShowPopularity">
+        <item name="android:layout_marginTop">@dimen/margin_10</item>
+        <item name="android:layout_marginEnd">@dimen/margin_10</item>
+        <item name="android:gravity">center</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="cardShowOverview">
+        <item name="android:layout_marginStart">@dimen/margin_10</item>
+        <item name="android:layout_marginEnd">@dimen/margin_10</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxLines">3</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">@color/blue_movie</item>
+        <item name="android:textSize">@dimen/card_message_text_size_small</item>
+    </style>
+
+</resources>
