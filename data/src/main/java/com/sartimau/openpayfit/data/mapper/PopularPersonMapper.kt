@@ -4,12 +4,12 @@ import com.sartimau.openpayfit.data.database.entity.KnownForEntity
 import com.sartimau.openpayfit.data.database.entity.PopularPersonEntity
 import com.sartimau.openpayfit.data.database.entity.PopularPersonEntityWithKnownForEntity
 import com.sartimau.openpayfit.data.service.model.KnownForResponse
-import com.sartimau.openpayfit.data.service.model.PersonResponse
+import com.sartimau.openpayfit.data.service.model.PersonPagingResponse
 import com.sartimau.openpayfit.data.service.model.PopularPersonResponse
 import com.sartimau.openpayfit.domain.entity.KnownFor
 import com.sartimau.openpayfit.domain.entity.PopularPerson
 
-fun PersonResponse.mapToLocalPopularPersonList(): List<PopularPerson> = results.map { it.mapToLocalPopularPerson() }
+fun PersonPagingResponse.mapToLocalPopularPersonList(): List<PopularPerson> = results.map { it.mapToLocalPopularPerson() }
 
 private fun PopularPersonResponse.mapToLocalPopularPerson() =
     PopularPerson(
