@@ -44,6 +44,15 @@ ext {
     // Picasso
     picasso_version = "2.5.2"
 
+    // Firebase
+    firebase_bom_version = "31.2.3"
+
+    // Maps
+    maps_version = "18.1.0"
+
+    // Location
+    location_version = "21.0.1"
+
     // Unit test
     junit_version = "4.13.2"
     mockk_version = "1.13.2"
@@ -58,42 +67,47 @@ ext {
     espresso_core_version = "3.5.1"
 
     dependencies = [
-            coreKtx                         : "androidx.core:core-ktx:${core_ktx_version}",
-            appCompat                       : "androidx.appcompat:appcompat:${app_compat_version}",
-            material                        : "com.google.android.material:material:${material_version}",
-            constraintLayout                : "androidx.constraintlayout:constraintlayout:${constraint_layout_version}",
-            lifecycleLiveDataKtx            : "androidx.lifecycle:lifecycle-livedata-ktx:${lifecycle_livedata_ktx_version}",
-            lifecycleViewModelKtx           : "androidx.lifecycle:lifecycle-viewmodel-ktx:${lifecycle_viewmodel_ktx_version}",
-            navigationFragmentKtx           : "androidx.navigation:navigation-fragment-ktx:${navigation_fragment_ktx_version}",
-            navigationUiKtx                 : "androidx.navigation:navigation-ui-ktx:${navigation_ui_ktx_version}",
-            retrofit                        : "com.squareup.retrofit2:retrofit:${retrofit_version}",
-            okhttp                          : "com.squareup.okhttp3:okhttp:${okhttp_version}",
-            kotlinxSerializationCore        : "org.jetbrains.kotlinx:kotlinx-serialization-core:${kotlinx_serialization_core_version}",
-            kotlinxSerializationJson        : "org.jetbrains.kotlinx:kotlinx-serialization-json:${kotlinx_serialization_json_version}",
-            kotlinxSerializationConverter   : "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:${kotlinx_serialization_converter_version}",
-            chucker                         : "com.github.chuckerteam.chucker:library:${chucker_version}",
-            roomRuntime                     : "androidx.room:room-runtime:${room_runtime_version}",
-            roomKtx                         : "androidx.room:room-ktx:${room_ktx_version}",
-            roomCompiler                    : "androidx.room:room-compiler:${room_compiler_version}",
-            hiltAndroid                     : "com.google.dagger:hilt-android:${hilt_android_version}",
-            hiltAndroidCompiler             : "com.google.dagger:hilt-android-compiler:${hilt_android_version}",
-            hiltCore                        : "com.google.dagger:hilt-core:${hilt_version}",
-            hiltCompiler                    : "com.google.dagger:hilt-compiler:${hilt_version}",
-            picasso                         : "com.squareup.picasso:picasso:${picasso_version}"
+            coreKtx                      : "androidx.core:core-ktx:${core_ktx_version}",
+            appCompat                    : "androidx.appcompat:appcompat:${app_compat_version}",
+            material                     : "com.google.android.material:material:${material_version}",
+            constraintLayout             : "androidx.constraintlayout:constraintlayout:${constraint_layout_version}",
+            lifecycleLiveDataKtx         : "androidx.lifecycle:lifecycle-livedata-ktx:${lifecycle_livedata_ktx_version}",
+            lifecycleViewModelKtx        : "androidx.lifecycle:lifecycle-viewmodel-ktx:${lifecycle_viewmodel_ktx_version}",
+            navigationFragmentKtx        : "androidx.navigation:navigation-fragment-ktx:${navigation_fragment_ktx_version}",
+            navigationUiKtx              : "androidx.navigation:navigation-ui-ktx:${navigation_ui_ktx_version}",
+            retrofit                     : "com.squareup.retrofit2:retrofit:${retrofit_version}",
+            okhttp                       : "com.squareup.okhttp3:okhttp:${okhttp_version}",
+            kotlinxSerializationCore     : "org.jetbrains.kotlinx:kotlinx-serialization-core:${kotlinx_serialization_core_version}",
+            kotlinxSerializationJson     : "org.jetbrains.kotlinx:kotlinx-serialization-json:${kotlinx_serialization_json_version}",
+            kotlinxSerializationConverter: "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:${kotlinx_serialization_converter_version}",
+            chucker                      : "com.github.chuckerteam.chucker:library:${chucker_version}",
+            roomRuntime                  : "androidx.room:room-runtime:${room_runtime_version}",
+            roomKtx                      : "androidx.room:room-ktx:${room_ktx_version}",
+            roomCompiler                 : "androidx.room:room-compiler:${room_compiler_version}",
+            hiltAndroid                  : "com.google.dagger:hilt-android:${hilt_android_version}",
+            hiltAndroidCompiler          : "com.google.dagger:hilt-android-compiler:${hilt_android_version}",
+            hiltCore                     : "com.google.dagger:hilt-core:${hilt_version}",
+            hiltCompiler                 : "com.google.dagger:hilt-compiler:${hilt_version}",
+            picasso                      : "com.squareup.picasso:picasso:${picasso_version}",
+            firebaseBom                  : "com.google.firebase:firebase-bom:${firebase_bom_version}",
+            firebaseAnalytics            : "com.google.firebase:firebase-analytics-ktx",
+            firebaseFirestore            : "com.google.firebase:firebase-firestore-ktx",
+            maps                         : "com.google.android.gms:play-services-maps:${maps_version}",
+            location                     : "com.google.android.gms:play-services-location:${location_version}"
     ]
 
     unitTestDependencies = [
-            junit                           : "junit:junit:${junit_version}",
-            mockk                           : "io.mockk:mockk:${mockk_version}",
-            mockkAndroid                    : "io.mockk:mockk-android:${mockk_android_version}",
-            mockkAgent                      : "io.mockk:mockk-agent:${mockk_agent_version}",
-            archCoreTesting                 : "androidx.arch.core:core-testing:${arch_core_testing_version}",
-            coroutinesCore                  : "org.jetbrains.kotlinx:kotlinx-coroutines-core:${coroutines_core_version}",
-            coroutinesTest                  : "org.jetbrains.kotlinx:kotlinx-coroutines-test:${coroutines_test_version}"
+            junit          : "junit:junit:${junit_version}",
+            mockk          : "io.mockk:mockk:${mockk_version}",
+            mockkAndroid   : "io.mockk:mockk-android:${mockk_android_version}",
+            mockkAgent     : "io.mockk:mockk-agent:${mockk_agent_version}",
+            archCoreTesting: "androidx.arch.core:core-testing:${arch_core_testing_version}",
+            coroutinesCore : "org.jetbrains.kotlinx:kotlinx-coroutines-core:${coroutines_core_version}",
+            coroutinesTest : "org.jetbrains.kotlinx:kotlinx-coroutines-test:${coroutines_test_version}"
     ]
 
     androidTestDependencies = [
-            junit                           : "androidx.test.ext:junit:${android_junit_version}",
-            espressoCore                    : "androidx.test.espresso:espresso-core:${espresso_core_version}"
+            junit       : "androidx.test.ext:junit:${android_junit_version}",
+            espressoCore: "androidx.test.espresso:espresso-core:${espresso_core_version}"
     ]
 }
