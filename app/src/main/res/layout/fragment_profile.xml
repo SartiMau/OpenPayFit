@@ -131,7 +131,7 @@
                 android:scrollbars="vertical"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/known_for_list"
-                tools:listitem="@layout/card_known_for" />
+                tools:listitem="@layout/card_show" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <include

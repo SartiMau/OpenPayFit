@@ -58,7 +58,7 @@ class ProfileFragment : Fragment() {
         mostPopularPerson?.let { person ->
 
             binding.personImage.loadImage(person.profilePath)
-            binding.personId.text = getString(R.string.popular_person_id, person.id.toString())
+            binding.personId.text = getString(R.string.id, person.id.toString())
             binding.personName.text = person.name
             binding.personDepartment.text = person.knownForDepartment
             binding.personPopularity.text = person.popularity.toString()

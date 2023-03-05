@@ -3,23 +3,100 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.sartimau.openpayfit.viewmodel.MoviesViewModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".fragment.MoviesFragment">
 
-        <TextView
-            android:id="@+id/text_movies"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:textAlignment="center"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/margin_10">
+
+                <TextView
+                    android:id="@+id/popular_movie_list"
+                    style="@style/subtitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/popular_movie_list"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <include
+                    android:id="@+id/popular_card"
+                    layout="@layout/expandable_card_show"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_10"
+                    app:layout_constraintTop_toBottomOf="@id/popular_movie_list" />
+
+                <View
+                    android:id="@+id/divider_popular"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/divider_height"
+                    android:layout_marginTop="@dimen/margin_10"
+                    android:background="@color/blue_movie"
+                    app:layout_constraintTop_toBottomOf="@id/popular_card" />
+
+                <TextView
+                    android:id="@+id/top_rated_movie_list"
+                    style="@style/subtitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/top_rated_movie_list"
+                    app:layout_constraintTop_toBottomOf="@id/divider_popular" />
+
+                <include
+                    android:id="@+id/top_rated_card"
+                    layout="@layout/expandable_card_show"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_10"
+                    app:layout_constraintTop_toBottomOf="@id/top_rated_movie_list" />
+
+                <View
+                    android:id="@+id/divider_top_rated"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/divider_height"
+                    android:layout_marginTop="@dimen/margin_10"
+                    android:background="@color/blue_movie"
+                    app:layout_constraintTop_toBottomOf="@id/top_rated_card" />
+
+                <TextView
+                    android:id="@+id/recommended_movie_list"
+                    style="@style/subtitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/recommended_movie_list"
+                    app:layout_constraintTop_toBottomOf="@id/divider_top_rated" />
+
+                <include
+                    android:id="@+id/recommended_card"
+                    layout="@layout/expandable_card_show"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_10"
+                    app:layout_constraintTop_toBottomOf="@id/recommended_movie_list" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+        <include
+            android:id="@+id/loader"
+            layout="@layout/loading_screen"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="@{viewModel.isLoading() ? View.VISIBLE : View.GONE}" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
