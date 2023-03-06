@@ -75,18 +75,20 @@ class MapFragment : Fragment(), OnMapReadyCallback {
         }
     }
 
-    private fun updateMapMarkers(locations: List<Location>) {
+    private fun updateMapMarkers(locations: HashMap<String, Location>) {
         if (::mMap.isInitialized && locations.isNotEmpty()) {
             mMap.clear()
 
             val markers = mutableListOf<Marker?>()
 
-            locations.forEach { location ->
-                val latLng = LatLng(location.latitude, location.longitude)
+            locations.keys.forEach { key ->
+                locations[key]?.let { location ->
+                    val latLng = LatLng(location.latitude, location.longitude)
 
-                // Save marker and draw it
-                markers.add(mMap.addMarker(MarkerOptions().position(latLng)))
-                mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng))
+                    // Save marker and draw it
+                    markers.add(mMap.addMarker(MarkerOptions().position(latLng).title(key)))
+                    mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng))
+                }
             }
 
             // Zoom until all markers are visible

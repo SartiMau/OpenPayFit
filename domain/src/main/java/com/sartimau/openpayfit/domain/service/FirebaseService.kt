@@ -5,5 +5,7 @@ import com.sartimau.openpayfit.domain.utils.CoroutineResult
 
 interface FirebaseService {
     fun saveLocation(location: Location)
-    suspend fun getLocations(): CoroutineResult<List<Location>>
+    suspend fun getLocations(): CoroutineResult<HashMap<String, Location>>
+
+    suspend fun saveImages(selectedImages: List<ByteArray>)
 }

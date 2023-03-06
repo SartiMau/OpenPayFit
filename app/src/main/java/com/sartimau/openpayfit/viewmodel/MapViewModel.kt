@@ -37,7 +37,7 @@ class MapViewModel @Inject constructor(
 
     data class MapData(
         val state: MapState,
-        val locations: List<Location> = emptyList(),
+        val locations: HashMap<String, Location> = hashMapOf(),
         val exception: Exception? = null
     )
 

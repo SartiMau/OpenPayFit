@@ -81,6 +81,13 @@ dependencies {
     // Location
     implementation appDependencies.location
 
+    // Camera
+    implementation appDependencies.cameraCore
+    implementation appDependencies.camera
+    implementation appDependencies.cameraView
+    implementation appDependencies.cameraLifecycle
+    implementation appDependencies.guava
+
     // Unit test
     testImplementation unitTestDependencies.junit
     testImplementation unitTestDependencies.mockkAndroid

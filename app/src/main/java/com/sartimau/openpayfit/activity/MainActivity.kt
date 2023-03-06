@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        PermissionUtils.checkLocationPermissions(this)
+        PermissionUtils.checkRequiredPermissions(this)
         TimeManager.startAlarm(this)
     }
 }
