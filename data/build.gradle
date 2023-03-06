@@ -73,6 +73,11 @@ dependencies {
     implementation appDependencies.roomKtx
     kapt appDependencies.roomCompiler
 
+    // Firebase
+    implementation platform(appDependencies.firebaseBom)
+    implementation appDependencies.firebaseAnalytics
+    implementation appDependencies.firebaseFirestore
+
     // Unit test
     testImplementation unitTestDependencies.junit
 

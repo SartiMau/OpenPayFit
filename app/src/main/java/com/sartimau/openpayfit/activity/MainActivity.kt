@@ -10,6 +10,8 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.sartimau.openpayfit.R
 import com.sartimau.openpayfit.databinding.ActivityMainBinding
+import com.sartimau.openpayfit.utils.PermissionUtils
+import com.sartimau.openpayfit.utils.TimeManager
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -37,5 +39,8 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        PermissionUtils.checkLocationPermissions(this)
+        TimeManager.startAlarm(this)
     }
 }

@@ -3,6 +3,8 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'dagger.hilt.android.plugin'
     id 'kotlin-kapt'
+    id 'com.google.gms.google-services'
+    id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
 }
 
 android {
@@ -72,6 +74,12 @@ dependencies {
 
     // Picasso
     implementation appDependencies.picasso
+
+    // Maps
+    implementation appDependencies.maps
+
+    // Location
+    implementation appDependencies.location
 
     // Unit test
     testImplementation unitTestDependencies.junit

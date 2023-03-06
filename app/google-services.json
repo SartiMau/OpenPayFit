@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "496788590856",
+    "project_id": "openpayfit",
+    "storage_bucket": "openpayfit.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:496788590856:android:d91e698c758d715a601cbd",
+        "android_client_info": {
+          "package_name": "com.sartimau.openpayfit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "496788590856-aedkpjodl3d58epqvdd1bo5e5dv62ubj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDr_DjUO-iG1TXHd5NyJsnBmnp5yPNcA10"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "496788590856-aedkpjodl3d58epqvdd1bo5e5dv62ubj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
