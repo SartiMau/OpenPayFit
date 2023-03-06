@@ -31,4 +31,7 @@
     <string name="images_tab_clear_content_description">Clear</string>
     <string name="images_saved_toast">Images saved correctly!</string>
     <string name="gallery_intent_title">Select image</string>
+
+    <string name="empty_state_image_content_description">Empty state image</string>
+    <string name="empty_state_text">There is not indo to show..</string>
 </resources>

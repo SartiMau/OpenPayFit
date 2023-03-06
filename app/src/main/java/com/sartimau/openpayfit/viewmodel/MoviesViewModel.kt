@@ -46,7 +46,7 @@ class MoviesViewModel @Inject constructor(
                     if (result.data.isNotEmpty()) {
                         mutableState.postValue(MoviesData(state = MoviesState.SHOW_POPULAR_MOVIES, popularMovies = result.data))
                     } else {
-                        mutableState.postValue(MoviesData(state = MoviesState.EMPTY_STATE))
+                        mutableState.postValue(MoviesData(state = MoviesState.POPULAR_EMPTY_STATE))
                     }
                 }
                 is CoroutineResult.Failure -> {
@@ -63,7 +63,7 @@ class MoviesViewModel @Inject constructor(
                         mutableState.postValue(MoviesData(state = MoviesState.SHOW_TOP_RATED_MOVIES, topRatedMovies = result.data))
                         fetchRecommendationsMovies(result.data.maxBy { it.popularity })
                     } else {
-                        mutableState.postValue(MoviesData(state = MoviesState.EMPTY_STATE))
+                        mutableState.postValue(MoviesData(state = MoviesState.TOP_RATED_EMPTY_STATE))
                     }
                 }
                 is CoroutineResult.Failure -> {
@@ -81,7 +81,7 @@ class MoviesViewModel @Inject constructor(
                             MoviesData(state = MoviesState.SHOW_RECOMMENDED_MOVIES, recommendationMovies = result.data)
                         )
                     } else {
-                        mutableState.postValue(MoviesData(state = MoviesState.EMPTY_STATE))
+                        mutableState.postValue(MoviesData(state = MoviesState.RECOMMENDED_EMPTY_STATE))
                     }
                 }
                 is CoroutineResult.Failure -> {
@@ -134,7 +134,9 @@ class MoviesViewModel @Inject constructor(
         SHOW_TOP_RATED_MOVIES,
         SHOW_RECOMMENDED_MOVIES,
         ON_ERROR,
-        EMPTY_STATE,
+        POPULAR_EMPTY_STATE,
+        TOP_RATED_EMPTY_STATE,
+        RECOMMENDED_EMPTY_STATE,
         EXPAND_CARD,
         COLLAPSE_CARD
     }

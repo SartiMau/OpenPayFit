@@ -18,6 +18,7 @@
         tools:context=".fragment.ProfileFragment">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/content_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="@dimen/card_container_margin">
@@ -133,6 +134,13 @@
                 app:layout_constraintTop_toBottomOf="@id/known_for_list"
                 tools:listitem="@layout/card_show" />
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <include
+            android:id="@+id/empty_state"
+            layout="@layout/empty_state_screen"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
 
         <include
             android:id="@+id/loader"

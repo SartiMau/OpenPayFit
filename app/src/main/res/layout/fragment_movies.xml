@@ -42,6 +42,15 @@
                     android:layout_marginTop="@dimen/margin_10"
                     app:layout_constraintTop_toBottomOf="@id/popular_movie_list" />
 
+                <include
+                    android:id="@+id/popular_empty_state"
+                    layout="@layout/empty_state_screen"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@id/popular_card"
+                    app:layout_constraintTop_toTopOf="@id/popular_card" />
+
                 <View
                     android:id="@+id/divider_popular"
                     android:layout_width="match_parent"
@@ -66,6 +75,15 @@
                     android:layout_marginTop="@dimen/margin_10"
                     app:layout_constraintTop_toBottomOf="@id/top_rated_movie_list" />
 
+                <include
+                    android:id="@+id/top_rated_empty_state"
+                    layout="@layout/empty_state_screen"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@id/top_rated_card"
+                    app:layout_constraintTop_toTopOf="@id/top_rated_card" />
+
                 <View
                     android:id="@+id/divider_top_rated"
                     android:layout_width="match_parent"
@@ -89,6 +107,15 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_10"
                     app:layout_constraintTop_toBottomOf="@id/recommended_movie_list" />
+
+                <include
+                    android:id="@+id/recommended_empty_state"
+                    layout="@layout/empty_state_screen"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:visibility="gone"
+                    app:layout_constraintTop_toTopOf="@id/recommended_card"
+                    app:layout_constraintBottom_toBottomOf="@id/recommended_card"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
 
