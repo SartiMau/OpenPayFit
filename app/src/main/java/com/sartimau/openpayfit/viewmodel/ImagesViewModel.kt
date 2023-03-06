@@ -79,8 +79,7 @@ class ImagesViewModel @Inject constructor(
 
     data class ImagesData(
         val state: ImagesState,
-        val images: List<Bitmap> = emptyList(),
-        val exception: Exception? = null
+        val images: List<Bitmap> = emptyList()
     )
 
     enum class ImagesState {

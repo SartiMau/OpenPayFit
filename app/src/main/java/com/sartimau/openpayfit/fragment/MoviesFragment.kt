@@ -20,12 +20,14 @@ import com.sartimau.openpayfit.viewmodel.MoviesViewModel.MoviesSection.POPULAR
 import com.sartimau.openpayfit.viewmodel.MoviesViewModel.MoviesSection.RECOMMENDED
 import com.sartimau.openpayfit.viewmodel.MoviesViewModel.MoviesSection.TOP_RATED
 import com.sartimau.openpayfit.viewmodel.MoviesViewModel.MoviesState.COLLAPSE_CARD
-import com.sartimau.openpayfit.viewmodel.MoviesViewModel.MoviesState.EMPTY_STATE
 import com.sartimau.openpayfit.viewmodel.MoviesViewModel.MoviesState.EXPAND_CARD
 import com.sartimau.openpayfit.viewmodel.MoviesViewModel.MoviesState.ON_ERROR
+import com.sartimau.openpayfit.viewmodel.MoviesViewModel.MoviesState.POPULAR_EMPTY_STATE
+import com.sartimau.openpayfit.viewmodel.MoviesViewModel.MoviesState.RECOMMENDED_EMPTY_STATE
 import com.sartimau.openpayfit.viewmodel.MoviesViewModel.MoviesState.SHOW_POPULAR_MOVIES
 import com.sartimau.openpayfit.viewmodel.MoviesViewModel.MoviesState.SHOW_RECOMMENDED_MOVIES
 import com.sartimau.openpayfit.viewmodel.MoviesViewModel.MoviesState.SHOW_TOP_RATED_MOVIES
+import com.sartimau.openpayfit.viewmodel.MoviesViewModel.MoviesState.TOP_RATED_EMPTY_STATE
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -73,7 +75,18 @@ class MoviesFragment : Fragment() {
             ON_ERROR -> ErrorDialog.newInstance().show(childFragmentManager, ErrorDialog.TAG)
             EXPAND_CARD -> expandCard(data.moviesSection)
             COLLAPSE_CARD -> collapseCard(data.moviesSection)
-            EMPTY_STATE -> TODO()
+            POPULAR_EMPTY_STATE -> {
+                binding.popularEmptyState.visibility = View.VISIBLE
+                binding.popularCard.root.visibility = View.INVISIBLE
+            }
+            TOP_RATED_EMPTY_STATE -> {
+                binding.topRatedEmptyState.visibility = View.VISIBLE
+                binding.topRatedCard.root.visibility = View.INVISIBLE
+            }
+            RECOMMENDED_EMPTY_STATE -> {
+                binding.recommendedEmptyState.visibility = View.VISIBLE
+                binding.recommendedCard.root.visibility = View.INVISIBLE
+            }
         }
     }
 

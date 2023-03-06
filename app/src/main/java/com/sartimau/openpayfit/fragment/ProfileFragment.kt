@@ -50,12 +50,18 @@ class ProfileFragment : Fragment() {
         when (data.state) {
             SHOW_INFO -> showProfileInfo(data.mostPopularPerson)
             ON_ERROR -> ErrorDialog.newInstance().show(childFragmentManager, ErrorDialog.TAG)
-            EMPTY_STATE -> TODO()
+            EMPTY_STATE -> {
+                binding.emptyState.visibility = View.VISIBLE
+                binding.contentContainer.visibility = View.GONE
+            }
         }
     }
 
     private fun showProfileInfo(mostPopularPerson: PopularPerson?) {
         mostPopularPerson?.let { person ->
+
+            binding.emptyState.visibility = View.GONE
+            binding.contentContainer.visibility = View.VISIBLE
 
             binding.personImage.loadImage(person.profilePath)
             binding.personId.text = getString(R.string.id, person.id.toString())
