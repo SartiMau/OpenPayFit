@@ -13,6 +13,7 @@ import com.sartimau.openpayfit.databinding.ExpandableCardShowBinding
 import com.sartimau.openpayfit.databinding.FragmentMoviesBinding
 import com.sartimau.openpayfit.dialog.ErrorDialog
 import com.sartimau.openpayfit.domain.entity.Movie
+import com.sartimau.openpayfit.domain.utils.EMPTY_STRING
 import com.sartimau.openpayfit.utils.loadImage
 import com.sartimau.openpayfit.viewmodel.MoviesViewModel
 import com.sartimau.openpayfit.viewmodel.MoviesViewModel.MoviesData
@@ -82,6 +83,10 @@ class MoviesFragment : Fragment() {
             TOP_RATED_EMPTY_STATE -> {
                 binding.topRatedEmptyState.visibility = View.VISIBLE
                 binding.topRatedCard.root.visibility = View.INVISIBLE
+
+                binding.recommendedMovieList.text = getString(R.string.recommended_movie_list, EMPTY_STRING)
+                binding.recommendedEmptyState.visibility = View.VISIBLE
+                binding.recommendedCard.root.visibility = View.INVISIBLE
             }
             RECOMMENDED_EMPTY_STATE -> {
                 binding.recommendedEmptyState.visibility = View.VISIBLE
