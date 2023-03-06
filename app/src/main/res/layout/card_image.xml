@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="@dimen/card_image_tab_size"
+        android:layout_height="@dimen/card_image_tab_size"
+        android:layout_margin="@dimen/margin_5"
+        android:contentDescription="@string/image_preview_content_description"
+        android:scaleType="centerInside"
+        android:scrollbars="horizontal"
+        tools:src="@mipmap/movie_placeholder" />
+</layout>

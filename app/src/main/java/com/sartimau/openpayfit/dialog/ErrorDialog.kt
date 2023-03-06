@@ -1,10 +1,14 @@
 package com.sartimau.openpayfit.dialog
 
+import android.app.Dialog
 import android.content.Context
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.Window
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
 import com.sartimau.openpayfit.R
@@ -16,7 +20,7 @@ interface ErrorDialogListener {
 
 class ErrorDialog : DialogFragment() {
 
-    private lateinit var onClickListener: ErrorDialogListener
+    private var onClickListener: ErrorDialogListener? = null
     private lateinit var binding: DialogErrorBinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -32,9 +36,20 @@ class ErrorDialog : DialogFragment() {
         return binding.root
     }
 
+    // Added this just to avoid a visual defect
+    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+        val dialog = Dialog(requireActivity())
+        dialog.setContentView(R.layout.dialog_error)
+
+        val window: Window? = dialog.window
+        window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+        return dialog
+    }
+
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        onClickListener = (context as ErrorDialogListener)
+        onClickListener = context as? ErrorDialogListener
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -45,7 +60,7 @@ class ErrorDialog : DialogFragment() {
         arguments?.getInt(BUTTON_TEXT_KEY)?.let { button -> binding.button.setText(button) }
         binding.button.setOnClickListener {
             dismiss()
-            onClickListener()
+            onClickListener?.invoke()
         }
     }
 

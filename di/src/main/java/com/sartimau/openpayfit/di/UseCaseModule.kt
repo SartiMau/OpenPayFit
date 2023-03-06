@@ -13,6 +13,8 @@ import com.sartimau.openpayfit.domain.usecase.GetRecommendedMoviesListByIdUseCas
 import com.sartimau.openpayfit.domain.usecase.GetRecommendedMoviesListByIdUseCaseImpl
 import com.sartimau.openpayfit.domain.usecase.GetTopRatedMovieListUseCase
 import com.sartimau.openpayfit.domain.usecase.GetTopRatedMovieListUseCaseImpl
+import com.sartimau.openpayfit.domain.usecase.SaveImagesUseCase
+import com.sartimau.openpayfit.domain.usecase.SaveImagesUseCaseImpl
 import com.sartimau.openpayfit.domain.usecase.SaveLocationUseCase
 import com.sartimau.openpayfit.domain.usecase.SaveLocationUseCaseImpl
 import dagger.Module
@@ -57,4 +59,7 @@ object UseCaseModule {
 
     @Provides
     fun provideGetLocationsUseCase(firebaseService: FirebaseService): GetLocationsUseCase = GetLocationsUseCaseImpl(firebaseService)
+
+    @Provides
+    fun provideSaveImagesUseCase(firebaseService: FirebaseService): SaveImagesUseCase = SaveImagesUseCaseImpl(firebaseService)
 }

@@ -53,6 +53,14 @@ ext {
     // Location
     location_version = "21.0.1"
 
+    // Camera
+    camera_core_version = "1.2.1"
+    camera_version = "1.2.1"
+    camera_view_version = "1.2.1"
+    camera_lifecycle_version = "1.2.1"
+
+    guava_version = "30.1.1-jre"
+
     // Unit test
     junit_version = "4.13.2"
     mockk_version = "1.13.2"
@@ -92,8 +100,14 @@ ext {
             firebaseBom                  : "com.google.firebase:firebase-bom:${firebase_bom_version}",
             firebaseAnalytics            : "com.google.firebase:firebase-analytics-ktx",
             firebaseFirestore            : "com.google.firebase:firebase-firestore-ktx",
+            firebaseStorage              : "com.google.firebase:firebase-storage-ktx",
             maps                         : "com.google.android.gms:play-services-maps:${maps_version}",
-            location                     : "com.google.android.gms:play-services-location:${location_version}"
+            location                     : "com.google.android.gms:play-services-location:${location_version}",
+            cameraCore                   : "androidx.camera:camera-core:${camera_core_version}",
+            camera                       : "androidx.camera:camera-camera2:${camera_version}",
+            cameraView                   : "androidx.camera:camera-view:${camera_view_version}",
+            cameraLifecycle              : "androidx.camera:camera-lifecycle:${camera_lifecycle_version}",
+            guava                        : "com.google.guava:guava:${guava_version}"
     ]
 
     unitTestDependencies = [

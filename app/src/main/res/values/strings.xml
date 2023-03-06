@@ -7,6 +7,7 @@
 
     <string name="loading">Loading</string>
     <string name="close">Close</string>
+    <string name="save">Save</string>
     <string name="see_more">See more</string>
     <string name="see_less">See less</string>
 
@@ -22,4 +23,12 @@
     <string name="top_rated_movie_list">Top rated movies:</string>
     <string name="recommended_movie_list">Movies recommended by %1$s:</string>
 
+    <string name="image_preview_content_description">Image preview</string>
+    <string name="images_tab_subtitle">Take image from:</string>
+    <string name="images_tab_camera_button">Camera</string>
+    <string name="images_tab_gallery_button">Gallery</string>
+    <string name="images_tab_image_counts">Images selected: %1$s</string>
+    <string name="images_tab_clear_content_description">Clear</string>
+    <string name="images_saved_toast">Images saved correctly!</string>
+    <string name="gallery_intent_title">Select image</string>
 </resources>

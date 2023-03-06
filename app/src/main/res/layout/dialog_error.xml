@@ -6,7 +6,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/dialog_background">
+        android:background="@drawable/dialog_background"
+        android:padding="@dimen/margin_10">
 
         <TextView
             android:id="@+id/title_text"
@@ -22,6 +23,7 @@
             style="@style/dialogMessage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_10"
             app:layout_constraintBottom_toTopOf="@id/button"
             app:layout_constraintTop_toBottomOf="@id/title_text"
             tools:text="Error message" />
@@ -29,12 +31,14 @@
         <Button
             android:id="@+id/button"
             style="@style/commonButton"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/margin_15"
+            android:layout_marginTop="@dimen/margin_10"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/message_text"
-            tools:text="Try Again" />
+            tools:text="Close" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -6,11 +6,11 @@ import com.sartimau.openpayfit.domain.utils.CoroutineResult
 import javax.inject.Inject
 
 interface GetLocationsUseCase {
-    suspend operator fun invoke(): CoroutineResult<List<Location>>
+    suspend operator fun invoke(): CoroutineResult<HashMap<String, Location>>
 }
 
 class GetLocationsUseCaseImpl @Inject constructor(
     private val firebaseService: FirebaseService
 ) : GetLocationsUseCase {
-    override suspend operator fun invoke(): CoroutineResult<List<Location>> = firebaseService.getLocations()
+    override suspend operator fun invoke(): CoroutineResult<HashMap<String, Location>> = firebaseService.getLocations()
 }

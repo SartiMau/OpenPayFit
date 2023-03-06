@@ -7,6 +7,7 @@ import android.location.Location
 import android.util.Log
 import com.google.android.gms.location.LocationServices
 import com.sartimau.openpayfit.domain.usecase.SaveLocationUseCase
+import com.sartimau.openpayfit.domain.utils.OPEN_PAY_FIT_TAG
 import com.sartimau.openpayfit.utils.NotificationUtils
 import com.sartimau.openpayfit.utils.PermissionUtils
 import dagger.hilt.android.AndroidEntryPoint
@@ -39,6 +40,6 @@ class TimeReceiver : BroadcastReceiver() {
             }
         }
 
-        Log.i("OpenPayFit", "Executed each 5 minutes")
+        Log.i(OPEN_PAY_FIT_TAG, "Executed each 5 minutes")
     }
 }

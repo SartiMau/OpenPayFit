@@ -1,5 +1,7 @@
 package com.sartimau.openpayfit.domain.utils
 
+const val OPEN_PAY_FIT_TAG = "OpenPayFit-TAG"
+
 const val EMPTY_STRING = ""
 
 const val ZERO_INT = 0

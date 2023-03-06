@@ -5,8 +5,4 @@
     <corners android:radius="20dp" />
 
     <solid android:color="@color/orange_movie" />
-
-    <size
-        android:width="32dp"
-        android:height="32dp" />
 </shape>
