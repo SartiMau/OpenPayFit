@@ -2,14 +2,15 @@ package com.sartimau.openpayfit.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.sartimau.openpayfit.R
 import com.sartimau.openpayfit.databinding.CardShowBinding
 import com.sartimau.openpayfit.domain.entity.KnownFor
 import com.sartimau.openpayfit.utils.loadImage
 
-class ProfileTabAdapter(private val showList: List<KnownFor>) :
-    RecyclerView.Adapter<ProfileTabViewHolder>() {
+class ProfileTabAdapter(private val showList: List<KnownFor>) : ListAdapter<KnownFor, ProfileTabViewHolder>(Callback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProfileTabViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -37,5 +38,15 @@ class ProfileTabViewHolder(private val binding: CardShowBinding) : RecyclerView.
 
     companion object {
         private const val MEDIA_TYPE_MOVIE = "movie"
+    }
+}
+
+object Callback : DiffUtil.ItemCallback<KnownFor>() {
+    override fun areItemsTheSame(oldItem: KnownFor, newItem: KnownFor): Boolean {
+        return oldItem.id == newItem.id
+    }
+
+    override fun areContentsTheSame(oldItem: KnownFor, newItem: KnownFor): Boolean {
+        return oldItem == newItem
     }
 }

@@ -25,6 +25,7 @@ class ProfileFragment : Fragment() {
 
     private val viewModel: ProfileViewModel by viewModels()
 
+    private lateinit var profileAdapter: ProfileTabAdapter
     private lateinit var binding: FragmentProfileBinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -38,6 +39,14 @@ class ProfileFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.state.observe({ lifecycle }, ::updateUi)
+
+        profileAdapter = ProfileTabAdapter(emptyList())
+
+        binding.recycler.apply {
+            adapter = profileAdapter
+            layoutManager = LinearLayoutManager(context)
+            setHasFixedSize(true)
+        }
     }
 
     override fun onResume() {
@@ -69,11 +78,13 @@ class ProfileFragment : Fragment() {
             binding.personDepartment.text = person.knownForDepartment
             binding.personPopularity.text = person.popularity.toString()
 
-            binding.recycler.apply {
-                adapter = ProfileTabAdapter(person.knownFor)
+            profileAdapter.submitList(mostPopularPerson.knownFor)
+/*            binding.recycler.apply {
+                adapter = profileAdapter
                 layoutManager = LinearLayoutManager(context)
                 setHasFixedSize(true)
             }
+ */
         }
     }
 }
