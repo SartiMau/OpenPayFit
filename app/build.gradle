@@ -22,14 +22,27 @@ android {
         versionName "1.0.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
 
-        buildConfigField "String", "IMAGES_BASE_URL", "\"http://image.tmdb.org/t/p/w500\""
+    flavorDimensions "version"
+    productFlavors {
+        hmc {
+            dimension "version"
+            applicationIdSuffix ".demo"
+            versionNameSuffix "-demo"
+        }
     }
 
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        qa {
+
+        }
+        debug {
+            buildConfigField "String", "IMAGES_BASE_URL", "\"http://image.tmdb.org/t/p/w500\""
         }
     }
     compileOptions {
@@ -87,6 +100,9 @@ dependencies {
     implementation appDependencies.cameraView
     implementation appDependencies.cameraLifecycle
     implementation appDependencies.guava
+
+    // Splash
+    implementation 'androidx.core:core-splashscreen:1.0.0-beta02'
 
     // Unit test
     testImplementation unitTestDependencies.junit

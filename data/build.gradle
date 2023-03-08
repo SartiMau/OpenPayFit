@@ -17,16 +17,27 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
+    }
 
-        buildConfigField "String", "MOVIES_BASE_URL", "\"https://api.themoviedb.org/\""
-        buildConfigField "String", "AUTHORIZATION_VALUE", "\"Bearer eyJhbGciOiJIUzI1NiJ9" +
-                ".eyJhdWQiOiI2NGIyMzg3NDdkNzU2YjM2YzU0MjQ1YjQ5YWUxNWFmZCIsInN1YiI6IjVkZDFlMjdhZmQ2ZmExMDAxMjgwMDQzNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ._pCVHHGwuR2hDlguJ8Gph6lITx65cQNPMmzJOO6LksA\""
+    flavorDimensions "version"
+    productFlavors {
+        hmc {
+
+        }
     }
 
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        qa {
+
+        }
+        debug {
+            buildConfigField "String", "MOVIES_BASE_URL", "\"https://api.themoviedb.org/\""
+            buildConfigField "String", "AUTHORIZATION_VALUE", "\"Bearer eyJhbGciOiJIUzI1NiJ9" +
+                    ".eyJhdWQiOiI2NGIyMzg3NDdkNzU2YjM2YzU0MjQ1YjQ5YWUxNWFmZCIsInN1YiI6IjVkZDFlMjdhZmQ2ZmExMDAxMjgwMDQzNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ._pCVHHGwuR2hDlguJ8Gph6lITx65cQNPMmzJOO6LksA\""
         }
     }
     compileOptions {
